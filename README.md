@@ -1,0 +1,2 @@
+# octosmith
+Octopress, without ruby
