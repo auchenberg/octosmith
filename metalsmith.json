@@ -1,0 +1,41 @@
+{
+  "source": "./source",
+  "destination": "./_site",
+  "metadata": {
+    "title": "My Jekyll-Powered Blog",
+    "description": "My second, super-cool, Jekyll-powered blog."
+  },
+  "plugins": {
+    "./octosmith/filters.js": true,
+    "metalsmith-drafts": {},
+    "metalsmith-markdown": {},
+    "metalsmith-permalinks": {
+      "pattern": ":path",
+      "linksets": [{
+          "match": { 
+            "collection": "_posts"
+          },
+          "pattern": ":YYYY/:mm/:dd/:title"
+      }]      
+    },
+    "metalsmith-layouts": {
+      "engine": "liquid",
+      "directory": "source/_layouts",
+      "partials": "source/_includes",
+      "default": "default.html"
+    },
+    "metalsmith-ignore": [
+      "_assets/**/*",
+      "_data/**/*",
+      "_includes/**/*",
+      "_layouts/**/*",
+      "_posts/**/*"
+    ],
+    "metalsmith-collections": {
+      "posts": {
+        "pattern": "_posts/*.md",
+        "sortBy": "date"
+      }
+    }    
+  }
+}
